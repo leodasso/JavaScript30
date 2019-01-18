@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>JS Drum Kit</title>
   <link rel="stylesheet" href="style.css">
+  <script type="text/javascript", src="drumScript.js">
+
+  </script>
 </head>
 <body>
 
@@ -56,28 +59,6 @@
   <audio data-key="74" src="sounds/snare.wav"></audio>
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
-
-<script>
-  window.addEventListener('keydown', function(e) {
-    playSound(e);
-  });
-
-  function playSound(eventInfo)
-  {
-
-    // find the audio element related to the given event
-    const selectorString = `audio[data-key="${eventInfo.keyCode}"]`;
-    const audio = document.querySelector(selectorString);
-
-    // If the given event has no audio, just exit the function.
-    if (!audio) return;
-
-    // log the audio event
-    console.log(audio);
-  }
-
-</script>
-
 
 </body>
 </html>
