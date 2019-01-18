@@ -1,8 +1,26 @@
-window.addEventListener('keydown', function(e) {
-  playSound(e);
-});
+// get a list of all the key elements
+const keys = document.querySelectorAll('.key');
 
-function playSound(eventInfo)
+// Events
+// add an event listener for when any key transition is complete
+keys.forEach(key => key.addEventListener('transitionend', returnToNormal));
+
+// add an event listener for any time a keyboard key is pressed
+window.addEventListener('keydown', playKey);
+
+
+
+function returnToNormal(eventInfo) {
+
+  // this is just to make sure we're only using 1 event per key
+  if (eventInfo.propertyName != 'transform') return;
+
+  this.classList.remove('playing');
+}
+
+
+
+function playKey(eventInfo)
 {
 
   // find the audio element related to the given event
